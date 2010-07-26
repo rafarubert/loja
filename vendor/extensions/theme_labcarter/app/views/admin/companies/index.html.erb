@@ -1,0 +1,34 @@
+<div class='toolbar order-links'>
+  <%= button_link_to t("new_company"), new_admin_company_url, :icon => 'add' %>
+</div>
+
+<h1><%= t("companies") %></h1>
+
+<h1><%= t("listing_companies") %></h1>
+
+<table class="index">
+  <thead>
+    <tr>
+        <th><%= t("date_created") %></th>
+        <th><%= t("name") %></th>
+        <th><%= t("active")+"?" %></th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @companies.each do |company| %>
+    <tr>
+      <%- locals = {:company => company} -%>
+        <td><%= company.created_at.to_date%></td>
+      	<td><%= company.name %></td>
+      	<td><%= company.active == true ? t(:active) : t(:desative) %></td>
+        <td><%= link_to_edit company %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= will_paginate(:previous_label => "&#171; #{t('previous')}", :next_label => "#{t('next')} &#187;") %>
+
+
+<% content_for :sidebar do %>
+<% end %>

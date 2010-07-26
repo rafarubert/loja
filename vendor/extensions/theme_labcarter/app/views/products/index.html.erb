@@ -1,0 +1,59 @@
+<% content_for :sidebar do %>
+  <% hook :homepage_sidebar_navigation do %>
+    <% if "products" == @current_controller && @taxon %>
+      <%= render "shared/filters" %>
+    <% else %>
+      <%= render "shared/taxonomies" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+<% if params[:keywords] %>
+
+  <h1><%= t(:search_results, :keywords => h(params[:keywords])) %></h1>
+  <% hook :search_results do %>
+    <% if @products.empty? %>
+      <%= t(:no_products_found) %>
+    <% else %>
+      <%= render "shared/products", :products => @products, :taxon => @taxon %>
+    <% end %>
+  <% end %>
+
+<% else %>
+
+<!--/top-->
+  <div id="header"><div class="wrap">
+   <div id="slide-holder">
+<div id="slide-runner">
+    <a href="http://www.uol.com.br"><img id="slide-img-1" src="images/nature-photo.png" class="slide" alt="" /></a>
+    <a href="http://www.terra.com.br"><img id="slide-img-2" src="images/nature-photo1.png" class="slide" alt="" /></a>
+    <a href="http://www.zipmail.com.br"><img id="slide-img-3" src="images/nature-photo2.png" class="slide" alt="" /></a>
+    <div id="slide-controls">
+     <p id="slide-client" class="text"><span></span></p>
+     <p id="slide-desc" class="text"></p>
+     <p id="slide-nav"></p>
+    </div>
+</div>
+	
+	<!--content featured gallery here -->
+   </div>
+   <script type="text/javascript">
+    if(!window.slider) var slider={};slider.data=[{"id":"slide-img-1","client":"","desc":" photography"},{"id":"slide-img-2","client":"","desc":"add your description here"},{"id":"slide-img-3","client":"","desc":"add your description here"}];
+   </script>
+  </div></div><!--/header-->
+
+
+
+    
+	<%= render "shared/products", :products => @products, :taxon => @taxon %>
+<% end %>
+
+
+<% content_for :head do %>
+
+    <%= javascript_include_tag 'scripts.js' %>
+    <%= stylesheet_link_tag 'galeria.css' %>
+
+
+<% end %>

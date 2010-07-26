@@ -1,0 +1,90 @@
+
+body { 
+	
+	background: url("../../images/bg.jpg") repeat-x scroll center top #E1E2E3 }
+
+h1.logo a {
+	background:transparent url(../../images/labcarter-logo.png) no-repeat scroll left center;
+	color:#BBDAFD;
+	display:block;
+	height:50px;
+	line-height:50px;
+	padding-left:120px;
+	text-decoration:none;
+}
+
+body.two-col #wrapper {
+	background-image: url('');
+}
+
+#wrapper {
+	background-image: url('');
+	padding:25px 20px 20px;
+	position:relative;
+}
+
+body.two-col #content {
+	display:inline;
+	float:left;
+	width:740px;
+}
+
+/* TELA DE LOGIN */
+
+#login #existing-customer {
+	float:right;
+	width:400px;
+}
+
+#login #existing-customer-painel {
+	float:left;
+	width:470px;
+}
+
+
+/* TELA DE CADASTRO DE CLIENTE */
+#signup #new-customer {
+	float:right;
+	width:450px;
+}
+#signup #new-customer-painel {
+	float:left;
+	width:400px;
+}
+
+.product-listing li a.info {
+	background:url("");
+}
+
+.navigation-list a.root {
+	color:#A00000;
+	font-size:1.5em;
+	line-height:2.2em;
+	text-indent:-5px;
+}
+
+.navigation-list li.current a {
+	color: #fff;
+}
+
+#footer {
+	background: none repeat scroll 0 0 #333333;
+	border-top:3px solid #777777;
+	height: 100px;
+	width: 100%;
+}
+
+.product-listing li {
+	-moz-border-radius:1em;
+	background-color: #fff;
+}
+
+.product-listing li:hover { 
+	border-color: #DDDDDD; 
+	color: #000;
+}
+.product-listing li:hover a.info {
+	background-color: transparent;
+	font-weight: bold;
+	color: #000;
+}

@@ -1,0 +1,15 @@
+<h1><%= t("company") %></h1>        
+
+<table>
+  <tr>
+    <th><%= t("name") %></th>
+    <td>
+      <%= @company.name %>
+    </td>
+  </tr>  
+</table>
+
+<p>
+  <%= link_to_edit @company %> &nbsp;
+  <%= link_to t('back'), collection_url %>
+</p>

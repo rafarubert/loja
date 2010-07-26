@@ -1,0 +1,29 @@
+<%= error_messages_for :user %>
+
+<% @body_id = 'signup' %>
+
+<div id="new-customer-painel">
+	<h2>Cadastre-se e aproveite a facilidade e preços baixos</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+</div>
+
+<div id="new-customer">
+  <h2><%= t("new_customer") %></h2>
+
+  <% hook :signup do %>
+
+    <% form_for(@user) do |f| %>
+
+      <% hook :signup_inside_form do %>
+        <%= render 'shared/user_form', :f => f %>
+        <p><%= submit_tag t("create"), :class => 'button primary' %></p>
+      <% end %>
+
+    <% end %>
+    <%= t("or") %> <%= link_to t("login_as_existing"), login_path %>
+
+  <% end %>
+
+</div>

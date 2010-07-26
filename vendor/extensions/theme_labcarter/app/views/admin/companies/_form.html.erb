@@ -1,0 +1,11 @@
+<%- locals = {:f => f} -%>
+
+<% f.field_container :name do %>
+  <%= f.label :name, t("name") %><br />
+  <%= f.text_field :name  %>
+  <%= error_message_on :company, :name%>
+<% end %>
+<% f.field_container :active do %>
+  <%= t(:active) %><%= f.check_box :active %><br />
+  <%= error_message_on :company, :active%>
+<% end %>
