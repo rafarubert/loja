@@ -1,0 +1,54 @@
+<fieldset id="order_details">
+  <div class="clear"></div>
+  <legend><%= t("confirm") %></legend>
+  <%= render :partial => 'shared/order_details', :locals => {:order => @order} -%>
+</fieldset>
+
+<hr />
+<div id='google_checkout_button'>
+    <form method="POST" action="https://pagseguro.uol.com.br/checkout/checkout.jhtml">
+<input type="hidden" name="tipo" value="CP">
+<input type="hidden" name="moeda" value="BRL">
+<input type="hidden" name="tipo_frete" value="EN">
+<input type="hidden" name="email_cobranca" value="financeiro@yack.com.br">
+
+
+	<% cont = 1 %>
+	  <% @order.line_items.each do |l| %>
+
+<input type="hidden" name="item_id_<%= cont %>" value="<%= l.product.id %>">
+<input type="hidden" name="item_descr_<%= cont %>" value="<%= l.product.name %>">
+<input type="hidden" name="item_quant_<%= cont %>" value="<%= l.quantity %>">
+<input type="hidden" name="item_valor_<%= cont %>" value="<%= Money.new(100 * l.price, Billing::GoogleCheckout.current[:currency]) %>">
+<input type="hidden" name="item_frete_<%= cont %>" value="0">
+<input type="hidden" name="item_peso_<%= cont %>" value="0">
+		<% cont += 1 %>
+
+          <% end %>
+
+<!-- INÍCIO DOS DADOS DO USUÁRIO -->
+<input type="hidden" name="cliente_nome" 
+value="Nome do cliente">
+<input type="hidden" name="cliente_cep" value="29200720">
+<input type="hidden" name="cliente_end" 
+value="Rua José Barcelos de Mattos">
+<input type="hidden" name="cliente_num" value="12">
+<input type="hidden" name="cliente_compl" value="Sala 109">
+<input type="hidden" name="cliente_bairro" 
+value="Bairro do cliente">
+<input type="hidden" name="cliente_cidade" 
+value="Cidade do cliente">
+<input type="hidden" name="cliente_uf" value="ES">
+<input type="hidden" name="cliente_pais" value="BRA">
+<input type="hidden" name="cliente_ddd" value="27">
+<input type="hidden" name="cliente_tel" value="22345678">
+<input type="hidden" name="cliente_email" 
+value="emaildocliente@clientefdp.com.br">
+<!-- FIM DOS DADOS DO USUÁRIO -->
+
+      <%= image_submit_tag( "https://p.simg.uol.com.br/out/pagseguro/i/botoes/carrinhoproprio/btnFinalizaBR.jpg", 
+        :name => "PagSeguro", 
+        :alt => "Pagamento Seguro da UOL",
+        :height => 46, :width => 180 ) %>
+    </form>
+  </div>
