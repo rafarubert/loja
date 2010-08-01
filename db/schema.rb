@@ -224,16 +224,20 @@ ActiveRecord::Schema.define(:version => 20100719120550) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
-    t.string   "number",           :limit => 15
-    t.decimal  "item_total",                     :precision => 8, :scale => 2, :default => 0.0, :null => false
-    t.decimal  "total",                          :precision => 8, :scale => 2, :default => 0.0, :null => false
+    t.string   "number",                :limit => 15
+    t.decimal  "item_total",                          :precision => 8, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "total",                               :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "state"
     t.string   "token"
-    t.decimal  "adjustment_total",               :precision => 8, :scale => 2, :default => 0.0, :null => false
-    t.decimal  "credit_total",                   :precision => 8, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "adjustment_total",                    :precision => 8, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "credit_total",                        :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.datetime "completed_at"
+    t.string   "financial_order_state"
+    t.string   "google_order_number"
+    t.string   "buyer_id"
+    t.string   "gateway"
   end
 
   add_index "orders", ["number"], :name => "index_orders_on_number"

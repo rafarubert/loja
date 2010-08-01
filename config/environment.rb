@@ -26,6 +26,9 @@ Spree::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
 
+# gem de debug
+config.gem "rails-footnotes"
+
   config.gem "highline", :version => '1.5.1'
   config.gem 'authlogic', :version => '2.1.3'
   config.gem 'authlogic-oid', :lib => "authlogic_openid", :version => '1.0.4'

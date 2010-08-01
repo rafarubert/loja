@@ -6,7 +6,7 @@
 
 <hr />
 <div id='google_checkout_button'>
-    <form method="POST" action="https://pagseguro.uol.com.br/checkout/checkout.jhtml">
+    <form method="POST" action="https://192.168.1.2/checkout/checkout.jhtml">
 <input type="hidden" name="tipo" value="CP">
 <input type="hidden" name="moeda" value="BRL">
 <input type="hidden" name="tipo_frete" value="EN">
@@ -19,7 +19,7 @@
 <input type="hidden" name="item_id_<%= cont %>" value="<%= l.product.id %>">
 <input type="hidden" name="item_descr_<%= cont %>" value="<%= l.product.name %>">
 <input type="hidden" name="item_quant_<%= cont %>" value="<%= l.quantity %>">
-<input type="hidden" name="item_valor_<%= cont %>" value="<%= Money.new(100 * l.price, Billing::GoogleCheckout.current[:currency]) %>">
+<input type="hidden" name="item_valor_<%= cont %>" value="<%= Money.new(100 * l.price,'BRL') %>">
 <input type="hidden" name="item_frete_<%= cont %>" value="0">
 <input type="hidden" name="item_peso_<%= cont %>" value="0">
 		<% cont += 1 %>
