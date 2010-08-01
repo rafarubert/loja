@@ -1,0 +1,18 @@
+---
+en-US:
+  google_checkout:
+    cancel_order: "Cancel order"
+    charge: "Charge"
+    order_cancelled: "Order successfully cancelled"
+    order_cancel_failed: "Order cancel failed"
+    order_charged: "Order successfully changed"
+    order_charge_failed: "Order charge failed"
+  google_checkout_status: "Google Checkout"
+  comment: "Comment"   
+  reason: "Reason"
+  use_sandbox: Sandbox
+  merchant_id: Merchant Id
+  merchant_key: Merchant Key    
+  currency: Currency
+  
+   
